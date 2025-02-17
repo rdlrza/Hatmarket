@@ -1,0 +1,14 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /Vintage%20Caps%20Co/
+
+# If the requested file or directory exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise, redirect all requests to index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# PHP error handling
+php_flag display_errors on
+php_value error_reporting E_ALL
